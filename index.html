@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random FM Audio Player</title>
+</head>
+<body>
+    <h1>Random FM Audio Player</h1>
+    <p id="currentURL"></p>
+    <p id="lineNumber"></p>
+    <audio id="audioPlayer" controls autoplay>
+        Your browser does not support the audio element.
+    </audio>
+    <button onclick="playRandomFM()">Play Random Station</button>
+
+    <script>
+        // Function to get a random FM station URL
+        function playRandomFM() {
+            // Fetch the FM stations list from the provided URL
+            fetch('https://raw.githubusercontent.com/ravana69/randomfm/main/test.txt')
+                .then(response => response.text())
+                .then(data => {
+                    const fmStations = data.split('\n').filter(station => station.trim() !== ''); // Split the data by newline and remove any empty lines
+
+                    // Function to get a random FM station URL
+                    function getRandomFMStation() {
+                        const randomIndex = Math.floor(Math.random() * fmStations.length);
+                        return { url: fmStations[randomIndex], lineNumber: randomIndex + 1 }; // lineNumber starts from 1
+                    }
+
+                    const audioPlayer = document.getElementById('audioPlayer');
+                    const currentURLElement = document.getElementById('currentURL');
+                    const lineNumberElement = document.getElementById('lineNumber');
+
+                    // Get a random FM station
+                    const randomFMStation = getRandomFMStation();
+
+                    // Set the audio source
+                    audioPlayer.src = randomFMStation.url;
+
+                    // Display the URL of the FM station
+                    currentURLElement.textContent = `Current Station URL: ${randomFMStation.url}`;
+                    lineNumberElement.textContent = `Line Number: ${randomFMStation.lineNumber}`;
+
+                    // Load and play the audio
+                    audioPlayer.load();
+                    audioPlayer.play();
+                })
+                .catch(error => console.error('Error fetching FM stations:', error));
+        }
+    </script>
+</body>
+</html>
