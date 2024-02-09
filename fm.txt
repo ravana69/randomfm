@@ -1,4 +1,4 @@
-clubfm https://sp14.instainternet.com/8050/stream
+https://sp14.instainternet.com/8050/stream
 radio mirchi http://listen.openstream.co/4626/audio
 radio mango https://bcovlive-a.akamaihd.net/19b535b7499a4719a5c19e043063f5d9/ap-southeast-1/6034685947001/playlist.m3u8
 radio asia https://securestreams7.autopo.st/?uri=http://51.255.235.165:5480/;stream.mp3
