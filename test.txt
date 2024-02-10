@@ -1,6 +1,6 @@
 https://sp14.instainternet.com/8050/stream
 http://listen.openstream.co/4626/audio
-https://bcovlive-a.akamaihd.net/19b535b7499a4719a5c19e043063f5d9/ap-southeast-1/6034685947001/playlist.m3u8
+https://bcovlive-a.akamaihd.net/19b535b7499a4719a5c19e043063f5d9/ap-southeast-1/6034685947001/profile_2/chunklist.m3u8
 https://securestreams7.autopo.st/?uri=http://51.255.235.165:5480/;stream.mp3
 https://playerservices.streamtheworld.com/api/livestream-redirect/SUNO917_SC
 https://ice31.securenetsystems.net/RADIOKERAL
