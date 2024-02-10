@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audio Player</title>
+</head>
+<body>
+
+<h1>Audio Player</h1>
+
+<!-- JavaScript code to load and play audio files -->
+<script>
+function playAudio(url) {
+    var audio = new Audio(url);
+    audio.play();
+}
+
+function createAudioPlayer(lineNumber, audioURL) {
+    var playerContainer = document.createElement("div");
+    var lineNumberText = document.createTextNode("Line Number: " + lineNumber);
+    var audioPlayer = document.createElement("audio");
+    audioPlayer.controls = true;
+    audioPlayer.src = audioURL;
+
+    playerContainer.appendChild(lineNumberText);
+    playerContainer.appendChild(audioPlayer);
+    document.body.appendChild(playerContainer);
+}
+</script>
+
+<!-- Fetching the audio URLs from the provided text file -->
+<script>
+fetch('https://raw.githubusercontent.com/ravana69/randomfm/main/test.txt')
+    .then(response => response.text())
+    .then(data => {
+        var audioURLs = data.trim().split('\n');
+        audioURLs.forEach((url, index) => {
+            createAudioPlayer(index + 1, url);
+        });
+    })
+    .catch(error => console.error('Error fetching audio URLs:', error));
+</script>
+
+</body>
+</html>
